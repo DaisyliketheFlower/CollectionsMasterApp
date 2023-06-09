@@ -30,7 +30,7 @@ namespace CollectionsMasterConsoleUI
             //TODO: Print the first number of the array
             //Console.WriteLine($"First number:{numbers[0]}");
 
-            Console.WriteLine("First number: {numbers.First()}");
+            Console.WriteLine($"First number: {numbers.First()}");
 
 
             //TODO: Print the last number of the array            
@@ -92,7 +92,7 @@ namespace CollectionsMasterConsoleUI
             Populater(numList);
 
             //TODO: Print the new capacity
-            Console.WriteLine($"New Capacity: {numList:Capacity}");
+            Console.WriteLine($"New Capacity: {numList.Capacity}");
 
             Console.WriteLine("---------------------");
 
@@ -142,15 +142,7 @@ namespace CollectionsMasterConsoleUI
             #endregion
         }
 
-        private static void NumberPrinter(List<int> numList)
-        {
-            throw new NotImplementedException();
-        }
-
-        private static void NumberPrinter(int[] numbers)
-        {
-            throw new NotImplementedException();
-        }
+      
 
         private static void ThreeKiller(int[] numbers)
         {
@@ -171,7 +163,7 @@ namespace CollectionsMasterConsoleUI
         {
             for (var i = numberList.Count - 1; i >= 0; i--)
             {
-                if (numberList[i] % 2 == 0)
+                if (numberList[i] % 2 != 0)
                 {
                     numberList.Remove(numberList[i]);
                 }
@@ -232,21 +224,29 @@ namespace CollectionsMasterConsoleUI
 
         }
 
+        /// <summary>
+        /// Generic print method will iterate over any collection that implements IEnumerable<T>
+        /// </summary>
+        /// <typeparam name="T"> Must conform to IEnumerable</typeparam>
+        /// <param name="collection"></param>
+        private static void NumberPrinter<T>(T collection) where T : IEnumerable<int>
+        {
+            //STAY OUT DO NOT MODIFY!!
+            foreach (var item in collection)
+            {
+                Console.WriteLine(item);
+            }
+        }
 
 
     }
 
-    /// <summary>
-    /// Generic print method will iterate over any collection that implements IEnumerable<T>
-    /// </summary>
-    /// <typeparam name="T"> Must conform to IEnumerable</typeparam>
-    /// <param name="collection"></param>
-
-
-    //STAY OUT DO NOT MODIFY!!
+   
 
 
 
+
+    
 
 
 
